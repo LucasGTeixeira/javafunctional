@@ -5,48 +5,48 @@ import java.util.function.Consumer;
 
 public class _Consumer {
     public static void main(String[] args) {
-        Custumer maria = new Custumer("Maria", "99999");
-        greetCustumer(maria);
-        greetCustumerAndShowNumber(maria, true);
-        greetCustumerAndShowNumber(maria, false);
-        greetCustumerConsumer.accept(maria);
-        greetCustumerBiConsumer.accept(maria, true);
-        greetCustumerBiConsumer.accept(maria, false);
+        Customer maria = new Customer("Maria", "99999");
+        greetCustomer(maria);
+        greetCustomerAndShowNumber(maria, true);
+        greetCustomerAndShowNumber(maria, false);
+        greetCustomerConsumer.accept(maria);
+        greetCustomerBiConsumer.accept(maria, true);
+        greetCustomerBiConsumer.accept(maria, false);
     }
 
-    static void greetCustumer(Custumer custumer){
-        System.out.println("Hello, " + custumer.custumerName +
+    static void greetCustomer(Customer customer){
+        System.out.println("Hello, " + customer.customerName +
                 ". Thanks for registering phone number " +
-                custumer.custumerPhoneNumber);
+                customer.customerPhoneNumber);
     }
 
-    static void greetCustumerAndShowNumber(Custumer custumer, boolean showPhoneNumber){
-        System.out.println("Hello, " + custumer.custumerName +
+    static void greetCustomerAndShowNumber(Customer customer, boolean showPhoneNumber){
+        System.out.println("Hello, " + customer.customerName +
                 ". Thanks for registering phone number " +
                 //ternary if
-                (showPhoneNumber ? custumer.custumerPhoneNumber : "*****"));
+                (showPhoneNumber ? customer.customerPhoneNumber : "*****"));
     }
 
     //Receive one argument and returns nothing
-    static Consumer<Custumer> greetCustumerConsumer = custumer ->
-            System.out.println("Hello, " + custumer.custumerName +
+    static Consumer<Customer> greetCustomerConsumer = customer ->
+            System.out.println("Hello, " + customer.customerName +
                     ". Thanks for registering phone number " +
-                    custumer.custumerPhoneNumber);
+                    customer.customerPhoneNumber);
 
     //Receive two arguments and return nothing
-    static BiConsumer<Custumer, Boolean> greetCustumerBiConsumer = (custumer, showPhoneNumber) ->
-            System.out.println("Hello, " + custumer.custumerName +
+    static BiConsumer<Customer, Boolean> greetCustomerBiConsumer = (customer, showPhoneNumber) ->
+            System.out.println("Hello, " + customer.customerName +
             ". Thanks for registering phone number " +
             //ternary if
-            (showPhoneNumber ? custumer.custumerPhoneNumber : "*****"));
+            (showPhoneNumber ? customer.customerPhoneNumber : "*****"));
 
-    static class Custumer{
-        private final String custumerName;
-        private final String custumerPhoneNumber;
+    static class Customer {
+        private final String customerName;
+        private final String customerPhoneNumber;
 
-        public Custumer(String custumerName, String custumerNumber) {
-            this.custumerName = custumerName;
-            this.custumerPhoneNumber = custumerNumber;
+        public Customer(String customerName, String customerNumber) {
+            this.customerName = customerName;
+            this.customerPhoneNumber = customerNumber;
         }
     }
 }
