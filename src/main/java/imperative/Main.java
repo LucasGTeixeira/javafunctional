@@ -16,7 +16,7 @@ public class Main {
                 new Person("Alice", FEMALE)
         );
 
-        //imperative approach
+        //Imperative approach
         System.out.println("Imperative Approach");
         List<Person> females = new ArrayList<>();
 
