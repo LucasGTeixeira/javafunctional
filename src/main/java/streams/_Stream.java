@@ -1,12 +1,9 @@
 package streams;
 
-import imperative.Main;
-
 import java.util.List;
-import java.util.function.Function;
-import java.util.function.IntConsumer;
-import java.util.function.ToIntFunction;
-import java.util.stream.Collectors;
+import java.util.function.Predicate;
+
+
 
 import static streams._Stream.Gender.*;
 
@@ -26,6 +23,13 @@ public class _Stream {
                 .map(person -> person.name)//convert into a name list
                 .mapToInt(String::length)//convert into a name length list
                 .forEach(System.out::println);//print each name length in the map list
+
+        Predicate<Person> personPredicate = person -> PREFER_NOT_TO_SAY.equals(person.gender);
+        boolean containsOnlyFemale = people.stream()
+                .noneMatch(personPredicate);
+
+        System.out.println(containsOnlyFemale);
+
     }
 
     static class Person {
